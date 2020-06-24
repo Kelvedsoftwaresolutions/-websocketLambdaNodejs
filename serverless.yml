@@ -1,0 +1,22 @@
+service: nodejs-websockets
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-south-1
+  memorySize: 256
+  role: arn:aws:iam::546457745774656:role/rolenme # includs cloud watch full access
+
+functions:
+  connectionHandler:
+    handler: handler.connectionHandler
+    events:
+      - websocket:
+          route: $connect
+      - websocket:
+          route: $disconnect
+  defaultHandler:
+    handler: handler.defaultHandler
+    events:
+      - websocket:
+          route: $default
