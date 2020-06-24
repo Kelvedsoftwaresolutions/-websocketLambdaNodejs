@@ -67,6 +67,7 @@ module.exports.defaultHandler = (event, context, callback) => {
   console.log("defaultHandler was called");
   console.log(event);
 
+  // Should be diiferent
   if (event.data.type === "sendMessageToAllConnected") {
     sendMessageToAllConnected(event)
       .then(() => {
