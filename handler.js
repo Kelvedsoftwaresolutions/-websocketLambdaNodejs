@@ -24,6 +24,7 @@ module.exports.connectionHandler = (event, context, callback) => {
   if (event.requestContext.eventType === "CONNECT") {
     const queryParams = event.queryStringParameters;
     const userId = queryParams.userId;
+    // wss://something.execute-api.ap-south-1.amazonaws.com/test?userId=idoftheuser
 
     if (userId) {
       // Handle connection
